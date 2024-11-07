@@ -1,0 +1,41 @@
+Produkt: Tapo L510E v3 (Hardwareversion 3)
+Firmwareversion: 1.1.9 Build 240730 Rel. 180848
+Schnittstellen: Wifi, Smartphone-App, Voice Control (Google Home & Amazon Alexa), (kann glaube ich noch mit tapo hub verbunden werden um mit anderen tapo Produkten gesynct zu werden), keine Cloud-Schnittstelle?,
+Wifi Connection: Wi-Fi-IEEE 802.11 b/g/n 2.4 GHz
+App-Setup: Die Gluehbirne wird ueber die App mit dem Router verbunden. Anschliessend koennen kann die Gluehbirne an und ausgeschalten werden oder die Helligkeit gedimmt werden.
+
+Wireshark-Scan:
+Gluehbirne hat IP 10.42.0.36
+1. ARP,DHCP und DNS Protokolle zwischen Router  und Gluehbirne
+2. EAPOL Protokoll zwischen RaspberryPi und Gluehbirne
+3. NTP Protokoll zwischen Gluehbirne und einer Website?
+4. TLSv1.2 Protokoll zwischen Gluehbirne und 54.171.162.117 (SNI=security.iot.i.tplinknbu.com) AWS server. Hier passiert ein Client-Key-Exchange
+5. TLSv1.2 Protokoll zwischen Gluehbirne und 34.246.67.207 (SNI=euw1-device-cloudgateway.iot.i.tplinknbu.com) AWS server. Hier passiert ein Server-Key-Exchange. Anschliessend wird Application Data geschickt.
+6. HTTP GET Request an 18.66.112.124 LINE 144 im Scan. 
+GET REQUEST:
+
+GET /firmware/LM500V4_UN_1.1.9_Build_240730_Rel.180848_2024-07-30_18.09.54_1725079943445.bin HTTP/1.1
+Host: download.tplinkcloud.com
+Accept: text/html, */*
+User-Agent: SHIP/2.0
+Connection: keep-alive
+Cache-control: no-cache
+Content-Length: 0
+
+RESPONSE:
+HTTP/1.1 200 OK
+Content-Type: binary/octet-stream
+Content-Length: 532652
+Connection: keep-alive
+Date: Sat, 12 Oct 2024 05:14:02 GMT
+Last-Modified: Sat, 31 Aug 2024 04:52:25 GMT
+ETag: "4b70f491056334436a8771ffe65bfa29"
+x-amz-server-side-encryption: AES256
+Accept-Ranges: bytes
+Server: AmazonS3
+X-Cache: Hit from cloudfront
+Via: 1.1 3a21078459f955a33f79dacf082781c4.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: FRA56-P5
+X-Amz-Cf-Id: cVFUzqLm-Roqho7O9g61ffsC64BQsqUlTSv2SavL62nfphqJdF1wig==
+Age: 2213761
+
